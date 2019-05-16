@@ -35,16 +35,12 @@ body{
     cursor: pointer;
     /* background-color: yellow; */
 }
-.del:hover{
-    /* height: 105%;
-    width: 25%; */
-    filter: blur(4px);
-}
 .image{
     object-fit: cover;
-    height: 80%;
+    height: 100%;
     display: block;
-}
+} 
+
 .text{
     height: 18%;
     display: block;

@@ -1,5 +1,6 @@
 
 var xhttp = new XMLHttpRequest();
+var change = false;
 
 $("#input").keydown(function(event){ 
     if (event.which == 13 && $("#input").val()!=""){
@@ -33,18 +34,22 @@ function send(){
 }
 
 $(".del").click(function(){
-    alert( this.id );
     var image = jQuery(this).children("img");
-    image.attr("src", "ban.png");
-    this.css("background-image", "url(ban.png)"); 
+    image.attr("src", "media/"+ this.id + "-ban.png");
+    image.attr("method", "post");
+
 });
 
 $(".del").hover(function(){
     var image = jQuery(this).children("img");
-    image.attr("src", "ban.png");
+    image.attr("src", "media/"+ this.id + "-ban.png");
 }, function(){
     var image = jQuery(this).children("img");
-    image.attr("src", this.id + ".png");
+    if (image.attr("method") == "get"){
+        image.attr("src", "media/"+ this.id + ".png");
+        
+    }else {
+    }
 });
 
 
