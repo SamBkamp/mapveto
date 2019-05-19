@@ -5,6 +5,7 @@ body{
     /* background-image: url("https://www.codegroup.com.au/wp-content/uploads/2016/06/hive-background.jpg"); */
     /* background-size: 50%; */
     padding: 0px;
+    overflow: hidden;
 }
 
 #totalWrap{
@@ -18,14 +19,14 @@ body{
     width: 60vw;
     height: 22vh;
     /* background-color: red; */
-    margin: 0 auto;
+    margin: -10vh auto;
 }
 
 #secondrow{
     width: 60vw;
     height: 22vh;
     /* background-color: red; */
-    margin: 10vh auto;
+    margin: 20vh auto;
 }
 .del{
     height: 100%;
@@ -111,12 +112,9 @@ body{
     background: #333333;
   }
 
-  .eminem {
-    height: 100%;
-    width: 20%;
-    display: inline-block;
-    transition: 0.5s;
-    cursor: pointer;
-    background-color: red;
-    z-index: 999999;
+  #turn {
+      margin-left: 30.5vw;
+      margin-top: 10vh;
+      color: white;
+      font-family: "Open Sans";
   }

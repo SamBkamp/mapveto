@@ -35,6 +35,7 @@
 			</div>
 			<input id="input" placeholder="chat" type="text" maxlength="25">
 		</div>
+		<h1 id="turn">its someones turn</h1>
 		<div id="totalWrap">
 			<div id="toprow">
 				<div id="train" class="del">
