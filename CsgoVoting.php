@@ -35,41 +35,35 @@
 			</div>
 			<input id="input" placeholder="chat" type="text" maxlength="25">
 		</div>
+		<h1 id="turn">its someones turn</h1>
 		<div id="totalWrap">
 			<div id="toprow">
 				<div id="train" class="del">
-					<img src="trainT.png" class="text" id="trainImage"/>
-					<img src="train.png" class="image"/>
+					<!-- <img src="trainT.png" class="text" id="trainImage"/> -->
+					<img src="media/train.png" class="image elmao" method="get"/>
 				</div>
 				<div id="dust" class="del">
-						<img src="dustT.png" class="text"/>
-						<img src="dust.png" class="image"/>
+						<img src="media/dust.png" class="image" method="get"/>
 				</div>
 				<div id="inferno" class="del">
-						<img src="infernoT.png" class="text"/>
-						<img src="inferno.png" class="image"/>
+						<img src="media/inferno.png" class="image" method="get"/>
 				</div>
 				<div id="cobble" class="del">
-						<img src="cobbleT.png" class="text"/>
-						<img src="cobble.png" class="image"/>
+						<img src="media/cobble.png" class="image" method="get"/>
 				</div>
 			</div>
 			<div id="secondrow">
-					<div id="overpass" class="del">
-							<img src="overpassT.png" class="text"/>
-							<img src="overpass.png" class="image"/>
+					<div id="olofpass" class="del">
+							<img src="media/olofpass.png" class="image" method="get"/>
 					</div>
 					<div id="mirage" class="del">
-							<img src="mirageT.png" class="text"/>
-							<img src="mirage.png" class="image"/>
+							<img src="media/mirage.png" class="image" method="get"/>
 					</div>
 					<div id="nuke" class="del">
-							<img src="nukeT.png" class="text"/>
-							<img src="nuke.png" class="image"/>
+							<img src="media/nuke.png" class="image" method="get"/>
 					</div>
 					<div id="cache" class="del">
-							<img src="cacheT.png" class="text"/>
-							<img src="cache.png" class="image"/>
+							<img src="media/cache.png" class="image" method="get"/>
 					</div>
 			</div>
 		</div>

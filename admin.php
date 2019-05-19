@@ -43,24 +43,29 @@
                 $t1thing = md5($_POST["team1"] . $_POST["team2"] . randoms());
                 $t2thing = md5($_POST["team1"] . $_POST["team2"] . randoms());
                 
-                echo("team 1: CsgoVoting.php?auth=" . $t1thing . "&t1=" . $_POST["team1"] . "&t2=" . $_POST["team2"]);
+                echo("team 1: http://localhost/CsgoVoting/CsgoVoting.php?auth=" . $t1thing . "&t1=" . $_POST["team1"] . "&t2=" . $_POST["team2"]);
                 echo("<br>");
                 echo("team 2: CsgoVoting.php?auth=" . $t2thing . "&t1=" . $_POST["team2"] . "&t2=" . $_POST["team1"]);
                 
                 $yiddlepod = "UPDATE attendance SET name='" . $_POST["team1"]. "', att='0', sec='". $t1thing ."' WHERE id=1";
                 $yiddlepodls = "UPDATE attendance SET name='" . $_POST["team2"]. "', att='0', sec='". $t2thing ."' WHERE id=2";
                 echo("<br>");
-                echo('<script>function remove(){
+                echo('<script>function remove(msg){
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
-                            alert("done");
+                            if (this.responseText == "complete"){
+                                alert("done");
+                            }else {
+                                alert(this.responseText);
+                            }
                         }
                     };
-                    xhttp.open("GET", "live.php?reset=dab", true);
+                    xhttp.open("GET", "live.php?reset=" + msg, true);
                     xhttp.send();
                 }</script>');
-                echo("<button onclick=remove()> delete chat</button>");
+                echo("<button onclick=remove('chat')> delete chat</button>");
+                echo("<button onclick=remove('mapper')>reset maps</button>");
                 if ($sql->query($yiddlepod) === TRUE) {
                     if ($sql->query($yiddlepodls) === TRUE) {
                     } else {

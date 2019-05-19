@@ -19,12 +19,63 @@ if (isset($_GET["pay"])){
     }
 }
 
-if (isset($_GET["reset"])){
-    $ins = "DELETE FROM chat";
-    if ($sql->query($ins) === TRUE) {
-    }else{
-        echo "failed to send";
+if (isset($_GET["maps"])){
+    if ($_GET["maps"] == "empty"){
+        $take = "SELECT * FROM maps";
+        $result = $sql->query($take);
+        $turnCheck = $sql->query("SELECT turn FROM attendance WHERE name = '". $_COOKIE["team"] ."'");
+        $turnCheckRes = $turnCheck->fetch_assoc();
+        if (implode($turnCheckRes) == "1"){
+            echo("true,");
+        }else{
+            echo("false,");
+        }
+        while($row = $result->fetch_assoc()) {
+            
+            if ($row["chosen"] == "true"){
+                echo($row["map"] . ",");
+            }
+        }
+    }else {
+        // $doubleCheck = $sql->query("SELECT turn FROM attendance WHERE name = '". $_COOKIE["team"] ."'");
+        // $doubleCheckRes = $turnCheck->fetch_assoc();
+        // if (implode($doubleCheckRes) != "1"){
+        //     exit();
+        // }
+        $turnEdit = "UPDATE attendance SET turn = '0' WHERE name = '". $_COOKIE["team"] ."'";
+        if ($sql->query($turnEdit) === TRUE) {
+            $turnSwitch = $sql->query("UPDATE attendance SET turn = '1' WHERE name != '". $_COOKIE["team"] ."'");
+            $take = "UPDATE maps SET chosen = 'true' WHERE map = '". $_GET["maps"] ."'";
+            if ($sql->query($take) === TRUE) {
+            
+            }else{
+                echo "false";
+            }
+        }else{
+            echo "false";
+        }
     }
 }
+
+if (isset($_GET["reset"])){
+    if ($_GET["reset"] == "chat"){
+        $ins = "DELETE FROM chat";
+        if ($sql->query($ins) === TRUE) {
+            echo("complete");
+        }else{
+            echo "failed to send";
+        }
+    }elseif ($_GET["reset"] == "mapper") {
+        $elmao = "UPDATE maps SET chosen= 'false'";
+        if ($sql->query($elmao) === TRUE) {
+            echo("complete");
+        }else{
+            echo "failed to send";
+        } 
+    }else {
+        echo($_GET["reset"]);
+    }
+}
+
 
 ?>
