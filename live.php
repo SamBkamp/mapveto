@@ -22,13 +22,23 @@ if (isset($_GET["pay"])){
 if (isset($_GET["maps"])){
     $GLOBALS['turnCheck'] = $sql->query("SELECT turn FROM attendance WHERE name = '". $_COOKIE["team"] ."'");
     $GLOBALS['turnCheckRes'] = $turnCheck->fetch_assoc();
+    $endCheck = $sql->query("SELECT map FROM maps WHERE chosen = 'false'") or die($sql->error);
     if ($_GET["maps"] == "empty"){
         $take = "SELECT * FROM maps";
-        $result = $sql->query($take);
+        $result = $sql->query($take) or die($sql->error);
         if (implode($turnCheckRes) == "1"){
-            echo("true,");
+            if ($endCheck->num_rows == 1){
+                echo("end,");
+            }else {
+                echo("true,");
+            }
         }else{
-            echo("false,");
+            if ($endCheck->num_rows == 1){
+                echo("end,");
+            }else {
+                echo("false,");
+            }
+            
         }
         while($row = $result->fetch_assoc()) {
             
