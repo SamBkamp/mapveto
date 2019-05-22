@@ -14,7 +14,12 @@
 				$checkFin = $checkQuery->fetch_assoc();
 				if ($checkFin["att"] == "0"){
 					if($checkFin["sec"] == $_GET["auth"]){
-						setcookie("team", $_GET["t1"], time() + (86400 * 30), "/");
+						$update = "UPDATE attendance SET att = '1' WHERE name ='" . $_GET["t1"] . "'";
+						if ($sql->query($update) === TRUE) {
+							setcookie("team", $_GET["t1"], time() + (86400 * 30), "/");
+						}else {
+							header("Location: /");
+						}
 					}else {
 						header("Location: /");
 					}

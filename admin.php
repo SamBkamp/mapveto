@@ -19,6 +19,7 @@
             }
             return $ex;
         }
+
             if (isset($_POST["pass"])){
                 if ($_POST["pass"] == "dab"){
                     echo "<script>document.body.innerHTML = '';</script>";
@@ -43,9 +44,11 @@
                 $t1thing = md5($_POST["team1"] . $_POST["team2"] . randoms());
                 $t2thing = md5($_POST["team1"] . $_POST["team2"] . randoms());
                 
-                echo("team 1: http://localhost/CsgoVoting/CsgoVoting.php?auth=" . $t1thing . "&t1=" . $_POST["team1"] . "&t2=" . $_POST["team2"]);
+                echo("<b>team 1</b>: sisdigitaleaders.com/mapveto/CsgoVoting.php?auth=" . $t1thing . "&t1=" . $_POST["team1"] . "&t2=" . $_POST["team2"]);
                 echo("<br>");
-                echo("team 2: CsgoVoting.php?auth=" . $t2thing . "&t1=" . $_POST["team2"] . "&t2=" . $_POST["team1"]);
+                echo("<b>team 2</b>: sisdigitaleaders.com/mapveto/CsgoVoting.php?auth=" . $t2thing . "&t1=" . $_POST["team2"] . "&t2=" . $_POST["team1"]);
+                echo("<br>");
+                echo("<b>spectating</b>: sisdigitaleaders.com/mapveto/view/viewmap.php?t1=" . $_POST["team1"] . "&t2=" . $_POST["team2"]);
                 
                 $yiddlepod = "UPDATE attendance SET name='" . $_POST["team1"]. "', att='0', sec='". $t1thing ."' WHERE id=1";
                 $yiddlepodls = "UPDATE attendance SET name='" . $_POST["team2"]. "', att='0', sec='". $t2thing ."' WHERE id=2";
